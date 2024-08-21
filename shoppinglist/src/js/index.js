@@ -4,6 +4,7 @@ import {
   removeItem,
   addToCompletedList,
   clearCompleted,
+  bootUp
 } from "./model";
 import { renderShpList, renderCmplList } from "./view";
 
@@ -74,3 +75,9 @@ clearCompletedBtn.addEventListener("click", function (evt) {
   clearCompleted();
   renderCmplList();
 });
+
+(()=>{
+  bootUp()
+  renderCmplList()
+  renderShpList()
+})();
