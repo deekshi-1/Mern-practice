@@ -1,5 +1,5 @@
 const Item = (title, priority ='normal',id)=>{
-    return `<div class="item ${priority}" data-id="${id}">
+    return `<div class="item ${priority}" data-id="${id}" draggable="true">
     <div class="task">${title}</div>
     <div class="priority-control">
         <span class="high"></span>
