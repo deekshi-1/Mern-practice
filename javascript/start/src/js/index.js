@@ -1,13 +1,14 @@
 // Write your code here...
 const container = document.querySelector('.list');
 const total = document.querySelector('.total');
-const loadCartBtn = document.querySelector('#load-cart-btn');
+const addProductBtn = document.querySelector('#addProductBtn');
 
-const Row = ({ product, price }) =>
+const Row = ({ product, price,id }) =>
   `<div class="product">
-    <span class="prod-name">${product}</span>
-    <span class="prod-cost">$${price}</span>
-  </div>`;
+<span class="prod-name">${product}</span>
+<span class="prod-cost">$${price}</span>
+<div class="delete-btn"><a href="#" name="delete-btn" data-id="${id}">X</a></div>
+</div>`;
 
 const render = function (arr) {
   const elems = arr.map((e) => Row(e));
@@ -17,26 +18,28 @@ const render = function (arr) {
   total.innerHTML = Row({ product: 'TOTAL', price: totalCost });
 };
 
-const getData = (uri) =>{
+const getData = (uri) =>
   new Promise((resolve,reject)=>{
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load',function(){
-      resolve(JSON.stringify(this.response))
-      console.log(this.response);
+      resolve(JSON.parse(this.response))
     })
-    xhr.addEventListener('error',()=> reject());
-    xhr.open('GET',uri);
+    xhr.addEventListener('error', () => reject());
+    xhr.open('GET', uri);
     xhr.send();
-  })
-}
+  });
 
 
-loadCartBtn.addEventListener('click',async ()=>{
+
+async function loadAndRender(){
   try{
     const product =  await getData('http://localhost:3000/products')
     render(product);
-  }
-  catch{
+  }catch{
     alert("Error in getting data")
   }
-})
+}
+
+loadAndRender();
+
+

@@ -121,14 +121,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // Write your code here...
 const container = document.querySelector('.list');
 const total = document.querySelector('.total');
-const loadCartBtn = document.querySelector('#load-cart-btn');
+const addProductBtn = document.querySelector('#addProductBtn');
 const Row = ({
   product,
-  price
+  price,
+  id
 }) => `<div class="product">
-    <span class="prod-name">${product}</span>
-    <span class="prod-cost">$${price}</span>
-  </div>`;
+<span class="prod-name">${product}</span>
+<span class="prod-cost">$${price}</span>
+<div class="delete-btn"><a href="#" name="delete-btn" data-id="${id}">X</a></div>
+</div>`;
 const render = function (arr) {
   const elems = arr.map(e => Row(e));
   const totalCost = arr.reduce((prev, curr) => prev + Number(curr.price), 0);
@@ -138,26 +140,24 @@ const render = function (arr) {
     price: totalCost
   });
 };
-const getData = uri => {
-  new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener('load', function () {
-      resolve(JSON.stringify(this.response));
-      console.log(this.response);
-    });
-    xhr.addEventListener('error', () => reject());
-    xhr.open('GET', uri);
-    xhr.send();
+const getData = uri => new Promise((resolve, reject) => {
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function () {
+    resolve(JSON.parse(this.response));
   });
-};
-loadCartBtn.addEventListener('click', async () => {
+  xhr.addEventListener('error', () => reject());
+  xhr.open('GET', uri);
+  xhr.send();
+});
+async function loadAndRender() {
   try {
     const product = await getData('http://localhost:3000/products');
     render(product);
   } catch {
     alert("Error in getting data");
   }
-});
+}
+loadAndRender();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -183,7 +183,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51010" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53806" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

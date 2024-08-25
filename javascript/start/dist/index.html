@@ -9,7 +9,14 @@
   <body>
     <div id="main">
       <h1>Shopping Cart</h1>
-      <button id="load-cart-btn">Load Cart...</button>
+      <form action="" name="add-product">
+        <div class="add-product-form">
+          <input type="text" name="product" placeholder="Product">
+          <input type="number" name="price" placeholder="Price" value="0">
+          <button id="addProductBtn">Add Product</button>
+        </div>
+      </form>
+      
       <div class="products">
         <div class="list"></div>
         <div class="total"></div>
