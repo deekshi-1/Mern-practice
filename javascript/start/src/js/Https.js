@@ -12,7 +12,7 @@ class Http{
     }
     get(qs){
         return new Promise((resolve,reject)=>{
-            this.xhr.open('GET',`${this.url}/?${Http.serialize(qs)}`,true);
+            this.xhr.open('GET',`${this.uri}/?${Http.serialize(qs)}`,true);
             this.xhr.addEventListener('load',function(){
                 resolve({status:this.statusText, response:this.response})
             });
@@ -20,4 +20,17 @@ class Http{
             this.xhr.send();
         })
     }
+
+    post(data){
+        return new Promise((resolve,reject)=>{
+            this.xhr.addEventListener('load',function(){
+                resolve({status:this.statusText, response:this.response})
+            });
+            this.xhr.addEventListener('error',(error)=> reject(error));
+            this.xhr.open('POST',this.uri,true);
+            this.xhr.setRequestHeader('Content-type','application/json');
+            this.xhr.send()
+        })
+    }
+
 }

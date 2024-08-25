@@ -117,11 +117,57 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/index.js":[function(require,module,exports) {
+})({"js/Https.js":[function(require,module,exports) {
+class Http {
+  constructor(uri) {
+    this.uri = uri;
+    this.xhr = new XMLHttpRequest();
+  }
+  static serialize(obj) {
+    let qs = [];
+    for (let prop in obj) {
+      qs = [...qs, `${encodeURIComponent(prop)}=${encodeURIComponent(obj[prop])}`];
+    }
+    return qs.join('&');
+  }
+  get(qs) {
+    return new Promise((resolve, reject) => {
+      this.xhr.open('GET', `${this.uri}/?${Http.serialize(qs)}`, true);
+      this.xhr.addEventListener('load', function () {
+        resolve({
+          status: this.statusText,
+          response: this.response
+        });
+      });
+      this.xhr.addEventListener('error', error => reject(error));
+      this.xhr.send();
+    });
+  }
+  post(data) {
+    return new Promise((resolve, reject) => {
+      this.xhr.addEventListener('load', function () {
+        resolve({
+          status: this.statusText,
+          response: this.response
+        });
+      });
+      this.xhr.addEventListener('error', error => reject(error));
+      this.xhr.open('POST', this.uri, true);
+      this.xhr.setRequestHeader('Content-type', 'application/json');
+      this.xhr.send();
+    });
+  }
+}
+},{}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _Https = _interopRequireDefault(require("./Https"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 // Write your code here...
 const container = document.querySelector('.list');
 const total = document.querySelector('.total');
 const addProductBtn = document.querySelector('#addProductBtn');
+const http = new _Https.default('http://localhost:3000/products');
 const Row = ({
   product,
   price,
@@ -140,25 +186,26 @@ const render = function (arr) {
     price: totalCost
   });
 };
-const getData = uri => new Promise((resolve, reject) => {
-  const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load', function () {
-    resolve(JSON.parse(this.response));
-  });
-  xhr.addEventListener('error', () => reject());
-  xhr.open('GET', uri);
-  xhr.send();
-});
 async function loadAndRender() {
   try {
-    const product = await getData('http://localhost:3000/products');
-    render(product);
+    const {
+      status,
+      response
+    } = await http.get();
+    console.log(status);
+    render(JSON.parse(response));
   } catch {
     alert("Error in getting data");
   }
 }
 loadAndRender();
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+addProductBtn.addEventListener("submit", function (e) {
+  e.preventDefault;
+  let product = e.target.product;
+  let price = e.target.price;
+  console.log(product, price);
+});
+},{"./Https":"js/Https.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -183,7 +230,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53806" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52095" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

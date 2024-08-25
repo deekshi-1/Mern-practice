@@ -1,7 +1,10 @@
+import Http from './Https';
+
 // Write your code here...
 const container = document.querySelector('.list');
 const total = document.querySelector('.total');
 const addProductBtn = document.querySelector('#addProductBtn');
+const http = new Http('http://localhost:3000/products')
 
 const Row = ({ product, price,id }) =>
   `<div class="product">
@@ -18,23 +21,14 @@ const render = function (arr) {
   total.innerHTML = Row({ product: 'TOTAL', price: totalCost });
 };
 
-const getData = (uri) =>
-  new Promise((resolve,reject)=>{
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener('load',function(){
-      resolve(JSON.parse(this.response))
-    })
-    xhr.addEventListener('error', () => reject());
-    xhr.open('GET', uri);
-    xhr.send();
-  });
-
 
 
 async function loadAndRender(){
   try{
-    const product =  await getData('http://localhost:3000/products')
-    render(product);
+    const {status,response} =  await http.get()
+    console.log(status);
+    
+    render(JSON.parse(response));
   }catch{
     alert("Error in getting data")
   }
@@ -42,4 +36,13 @@ async function loadAndRender(){
 
 loadAndRender();
 
+
+
+addProductBtn.addEventListener("submit",function(e){
+  e.preventDefault;
+  let product = e.target.product;
+  let price = e.target.price;
+  console.log( product,price);
+
+})
 
