@@ -16,3 +16,27 @@ const render = function (arr) {
   container.innerHTML = elems.join('');
   total.innerHTML = Row({ product: 'TOTAL', price: totalCost });
 };
+
+const getData = (uri) =>{
+  new Promise((resolve,reject)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.addEventListener('load',function(){
+      resolve(JSON.stringify(this.response))
+      console.log(this.response);
+    })
+    xhr.addEventListener('error',()=> reject());
+    xhr.open('GET',uri);
+    xhr.send();
+  })
+}
+
+
+loadCartBtn.addEventListener('click',async ()=>{
+  try{
+    const product =  await getData('http://localhost:3000/products')
+    render(product);
+  }
+  catch{
+    alert("Error in getting data")
+  }
+})
