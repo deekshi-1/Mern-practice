@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="main">
-      <h1>Welcome to KnowledgeHut upGrad!</h1>
-      <p>You can start by editing the <code>src/index.html</code> , <code>src/js/index.js</code> and <code>src/css/style.css</code></p>
-      <p>To run the development server, run <code>npm run dev</code></p>
-      <p>To produce a build version that you can deploy online, run <code>npm run build</code></p>
-      <p>To view the built edition of your app, run <code>npm run preview</code></p>
-      <div id="api-status">You are running the app in production mode</div>
-    </div>
+    <h1>Book Library</h1>
+    <section id="addBook">
+      <h2>Add a Book</h2>
+      <form action="">
+        <input id="bookTitle" type="text" placeholder="Title">
+        <input id="bookAuthor" type="text" placeholder="Author">
+        <input id="bookRating" type="number" min="1" max="5" placeholder="Rating">
+        <button id="submitButton">Submit</button>
+      </form>
+    </section>
+    <section  id="listBook">
+      <h2>Book List</h2>
+      <hr/>
+      <input type="text" placeholder="Search by title">
+    </section >
     <script type="module" src="js/index.js"></script>
   </body>
 </html>
