@@ -7,7 +7,7 @@ function Book(title, author, rating) {
   this.rating = rating;
   this.reviews = [];
 }
-
+let filterBook=[];
 const BookCollection = {
   books: [],
   addBook: function (book) {
@@ -16,7 +16,7 @@ const BookCollection = {
     let bookRating = document.getElementById("bookRating").value;
     let abook =new Book(bookTitle,bookAuthor,bookRating );
     this.books.push(abook);
-    BookCollection.render();
+    BookCollection.render(this.books);
     console.log(this.books);
     rmAttach();
   },
@@ -26,19 +26,20 @@ const BookCollection = {
     else{
       let removeBook = this.books.splice(bookToRemoved, 1);
       console.log(removeBook);
-      this.render();
+      this.render(this.books);
       
     }
-    this.render();
   },
   searchBook: function (title) {
     let filterBook = this.book.filter((book) => book.title.includes(title));
-    if (filterBook != 0) {
+    if (filterBook == 0) {
+    }else{
+      this.render(filterBook);
     }
   },
-  render: function () {
+  render: function (array) {
     let item = "";
-    BookCollection.books.forEach((element) => {
+    array.forEach((element) => {
       let bookDisplay = `<div>
   <h3>Title:${element.title}</h3>
   <h4>Author:${element.author}</h4>
@@ -56,7 +57,11 @@ addButton.addEventListener("click", function (e) {
   e.preventDefault();
   BookCollection.addBook();
 });
-
+let searchText = document.getElementById("searchText");
+searchText.addEventListener("change", function (e) {
+  e.preventDefault();
+  BookCollection.searchBook(e.target.value);
+});
 function rmAttach() {
   let rmButton = document.querySelectorAll(".removeButton");
   rmButton.forEach((btn) => {
