@@ -4,15 +4,14 @@ import About from "./components/About";
 import Recipes from "./components/Recipes";
 import AddRecipe from "./components/AddRecipe";
 import Login from "./components/Login";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Layout, Typography, Menu, Col, Icon } from "antd";
-import { BrowserRouter , Link, Switch, Route } from "react-router-dom";
-
 const { Text } = Typography;
 const { Header, Footer } = Layout;
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Layout>
         <Header className="header">
           <Col span={6}>
@@ -33,7 +32,7 @@ const App = () => {
                 </Link>
               </Menu.Item>
               <Menu.Item key="3">
-                <Link to="/recepies">
+                <Link to="/recipes">
                   <Icon type="fire" />
                   Recipes
                 </Link>
@@ -59,12 +58,21 @@ const App = () => {
         </Header>
         <Layout className="content-box">
           <Switch>
-            <Route exact path="/" ><Home/></Route>
-            <Route path="/about"><About/></Route>
-            <Route path="/recipes"><Recipes/></Route>
-            <Route path="/addrecipe" ><AddRecipe/></Route>
-            <Route path="/login"><Login/></Route>
-
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/recipes">
+              <Recipes />
+            </Route>
+            <Route path="/addrecipe">
+              <AddRecipe />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
           </Switch>
         </Layout>
         <Footer>
@@ -73,7 +81,7 @@ const App = () => {
           </Text>
         </Footer>
       </Layout>
-    </BrowserRouter>
+    </Router>
   );
 };
 
