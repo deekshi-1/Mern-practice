@@ -21,6 +21,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const history =useHistory();
   const location =useLocation();
+  const AuthCtx = useAuthentication();
   const {from} =(location && location.state) || {from:{pathname:"/"}}
   
   const formItemLayout = {
@@ -28,11 +29,12 @@ const Login = () => {
       md: { span: 20 }
     }
   };
-  const AuthCtx = useAuthentication();
-  const {login,user,error}=useContext(AuthCtx);
-useEffect(()=>{
-  user && history.replace(from);
-},[user,from,history])
+  console.log("AUTHX",AuthCtx);
+  
+  // const {login,user,error}=useContext(AuthCtx);
+// useEffect(()=>{
+//   user && history.replace(from);
+// },[user,from,history])
   return (
     <Layout>
       <Row>
@@ -61,7 +63,7 @@ useEffect(()=>{
               />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" className="login-form-button" onClick={()=> login(email,password)}>  
+              <Button type="primary" className="login-form-button" >  
                 Login
               </Button>
             </Form.Item>
@@ -73,13 +75,13 @@ useEffect(()=>{
           <Alert message="Incorrect usernam/password" type="error" />
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <Col span={8}>
         {error ?(
           <Alert message="Incorrect username/password" type="error"></Alert>
         ): null}
         </Col>
-      </Row>
+      </Row> */}
     </Layout>
   );
 };
