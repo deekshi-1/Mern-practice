@@ -12,7 +12,7 @@ const Input = ({label,onInput,inputRef}) =>{
 
 Input.PropTypes ={
     label:PropTypes.string.isRequired,
-    onInput:PropTypes.func,
+    onInput:PropTypes.func.isRequired,
     inputRef:PropTypes.object.isRequired
 }
 
