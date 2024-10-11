@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState ,useEffect} from "react";
+import useAuthentication from "../useAuthentication"
+import {useHistory,useLocation} from "react-router-dom"
+
 import {
   Layout,
   Col,
@@ -16,13 +19,20 @@ const { Title } = Typography;
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const history =useHistory();
+  const location =useLocation();
+  const {from} =(location && location.state) || {from:{pathname:"/"}}
+  
   const formItemLayout = {
     wrapperCol: {
       md: { span: 20 }
     }
   };
-
+  const AuthCtx = useAuthentication();
+  const {login,user,error}=useContext(AuthCtx);
+useEffect(()=>{
+  user && history.replace(from);
+},[user,from,history])
   return (
     <Layout>
       <Row>
@@ -51,7 +61,7 @@ const Login = () => {
               />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" className="login-form-button">
+              <Button type="primary" className="login-form-button" onClick={()=> login(email,password)}>  
                 Login
               </Button>
             </Form.Item>
@@ -61,6 +71,13 @@ const Login = () => {
       <Row>
         <Col span={8}>
           <Alert message="Incorrect usernam/password" type="error" />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={8}>
+        {error ?(
+          <Alert message="Incorrect username/password" type="error"></Alert>
+        ): null}
         </Col>
       </Row>
     </Layout>

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import Home from "./components/Home";
 import About from "./components/About";
 import Recipes from "./components/Recipes";
@@ -6,10 +6,14 @@ import AddRecipe from "./components/AddRecipe";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Layout, Typography, Menu, Col, Icon } from "antd";
+import useAuthentication from "./useAuthentication"
 const { Text } = Typography;
 const { Header, Footer } = Layout;
 
+
 const App = () => {
+  const {AuthCtx} =useAuthentication();
+  const { user,logOut} = useContext(AuthCtx)
   return (
     <Router>
       <Layout>

@@ -5,11 +5,11 @@ import { getRecipe } from "../api";
 
 const { Title } = Typography;
 
-const RecipeDetail = () => {
+const RecipeDetail = ({id}) => {
   const [recipe, setRecipe] = useState({});
   useEffect(() => {
-    getRecipe("brk01").then(data => setRecipe(data[0]));
-  }, []);
+    getRecipe(id).then(data => setRecipe(data[0]));
+  }, [id]);
 
   return (
     <div className="recipe-detail">
