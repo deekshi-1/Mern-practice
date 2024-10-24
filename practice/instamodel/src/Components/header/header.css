@@ -5,6 +5,10 @@
     gap: 10px;
 }
 
+.headerWrapper{
+    padding: 20px 40px;
+    background: beige;
+}
 
 .icon>img{
     width: 50px;
