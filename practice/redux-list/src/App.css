@@ -1,0 +1,70 @@
+.App {
+  background-color: #7AB2D3;
+  box-sizing: border-box;
+  font-size: 18px;
+
+}
+*{
+  box-sizing: border-box;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.mainBlock{
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid yellow;
+}
+
+
+.left{
+  padding: 10px 20px;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 30%;
+  border: 2px solid rgb(22, 22, 19);
+}
+.right{
+  font-size: 18px;
+  flex:0 0 60%;
+  height: 80%;
+  border: 2px solid rgb(22, 22, 19);
+  padding: 40px 10px 30px 40px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.leftWrapper{
+  width: 100%;
+  text-align: left;
+}
+
+input,.addItemButton{
+  height: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.inputText,.addItemButton{
+  width: 80%;
+}
+
+.inputNumber{
+  max-width: 60px;
+  margin: 10px 0 20px;
+}
+
+.items{
+  flex: 1;
+  overflow-y:auto;
+}
+

@@ -1,0 +1,62 @@
+.App {
+  box-sizing: border-box;
+  padding: 30px;
+  background: #DBD3D3;
+  height: 100vh;
+
+}
+
+h2{
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+
+.item{
+  background-color: #005f73;
+  max-width: 350px;
+  padding: 20px 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.title{
+  font-size: 25px;
+  font-weight: 700;
+  color: bisque;
+}
+
+
+.price{
+  margin: 10px 0;
+}
+
+
+.description{
+  font-weight: 300;
+}
+
+.likeUnlike{
+  display: flex;
+  margin: 20px 0;
+  gap: 10px;
+  background: #ccd5ae;
+  width: fit-content;
+  border-radius: 10px;
+
+}
+
+
+.likeUnlike>button{
+  background:none;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.likeUnlike>span{
+  background: #df5c10;
+  padding: 0px 10px;
+}
