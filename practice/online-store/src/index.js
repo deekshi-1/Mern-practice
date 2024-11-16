@@ -6,7 +6,7 @@ import App from "./App";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import catalogApi from "./redux/appSlice";
+import {catalogApi} from "./redux/appSlice";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

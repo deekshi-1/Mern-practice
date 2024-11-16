@@ -1,20 +1,18 @@
 .App {
   box-sizing: border-box;
   padding: 30px;
-  background: #DBD3D3;
+  background: #dbd3d3;
   height: 100vh;
-
 }
 
-h2{
+h2 {
   font-size: 40px;
   margin: 20px 0;
 }
 
-
-.item{
+.item {
   background-color: #005f73;
-  max-width: 350px;
+  max-width: 30%;
   padding: 20px 10px;
   color: white;
   font-size: 18px;
@@ -22,41 +20,76 @@ h2{
   border-radius: 10px;
 }
 
-.title{
+.title {
   font-size: 25px;
   font-weight: 700;
   color: bisque;
 }
 
-
-.price{
+.price {
   margin: 10px 0;
 }
 
-
-.description{
+.description {
   font-weight: 300;
 }
 
-.likeUnlike{
+.likeUnlike {
   display: flex;
   margin: 20px 0;
   gap: 10px;
   background: #ccd5ae;
   width: fit-content;
   border-radius: 10px;
-
 }
 
-
-.likeUnlike>button{
-  background:none;
+.likeUnlike > button {
+  background: none;
   border: none;
   display: flex;
   align-items: center;
 }
 
-.likeUnlike>span{
+.likeUnlike > span {
   background: #df5c10;
-  padding: 0px 10px;
+  padding: 10px 10px;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 34px;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.detailWrapper,.detaildescription{
+  color: brown;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.detailtitle{
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(4, 97, 85);
+}
+
+.detaillikes>span{
+  margin-left: 20px;
+}
+.detaildescription{
+  margin: 15px 0;
+}
+.detailcomments{
+  margin: 20px 0;
+}
+
+.detailcomments>p{
+  font-weight: 500;
+  margin: 10px 0;
 }

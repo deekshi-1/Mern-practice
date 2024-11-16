@@ -1,0 +1,75 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Air Jordan",
+      "price": 55.55,
+      "description": "Good overall condition with light wear. Will need a light cleaning. See photos for condition details.",
+      "review": [
+        "As described and shown, well packaged, fast shipping, good seller contact!",
+        "Item was as described. Packaged carefully plus Lightning shipping!!! Excellent seller⭐️⭐️⭐️⭐️⭐️",
+        "Items as described. We'll packed and shipped promptly. Would do business with seller again. Thank you!"
+      ],
+      "likes": 580
+    },
+    {
+      "id": "2",
+      "title": "Analog Watch",
+      "price": 66,
+      "description": "The brand Titan is celebrated for its close connect with the consumers across different lifestyle categories.",
+      "review": [
+        "Best purchase at huge discount",
+        "Geniune product",
+        "Sweet looking nice"
+      ],
+      "likes": 345
+    },
+    {
+      "id": "3",
+      "title": "Keyboard",
+      "price": 219,
+      "description": "Includes Redragon RGB Backlit Computer Gaming Keyboard and RGB Backlit Gaming Mouse.",
+      "review": [
+        "Nice and compact, yet has all keys, special functions and more!.Can change backlight color and display.",
+        "Needed a major upgrade on my keyboard and mouse I’ve had for a couple years and was looking for something that is of good quality and also decently priced.",
+        "I can say with complete honesty, that I do not think you can find a better Mouse/Keyboard combo out there for the price "
+      ],
+      "likes": 454
+    },
+    {
+      "id": "4",
+      "title": "Gaming Mouse",
+      "price": 15,
+      "description": "The 2.4GHZ wireless technology makes it possible to connect your computer without wires.",
+      "review": [
+        "the Redragon Gaming Wireless Mouse is truly a game-changer",
+        "This mouse surprised me though as it actually has more features than its more expensive competitors.",
+        "It says it can last 70 hours but if you turn off the RGB it can last 2 weeks! It's comfortable and good looking."
+      ],
+      "likes": 154
+    },
+    {
+      "id": "5",
+      "title": "Pressure Cooker",
+      "price": 129,
+      "description": "7-IN-1 FUNCTIONALITY: Pressure cook, slow cook, rice cooker, yogurt maker, steamer, sauté pan and food warmer.",
+      "review": [
+        "This is my 4th or 5th electric pressure cooker, and it is replacing a Cooks Essentials 6-quart electric PC whose interior pot's non-stick lining had chipped.",
+        "This is my second Instant Pot. I have found myself needing more than one and so I asked for this second larger one for my birthday. "
+      ],
+      "likes": 432
+    },
+    {
+      "id": "6",
+      "title": "Travel Adapter",
+      "price": 22,
+      "description": "Crafted for the ultimate travel convenience, this quintessential companion effortlessly fits the bill of a global travel necessity",
+      "review": [
+        "Super versatile, everything, all in one. I would add an additional plug for cell phone, iwatch or earpods.",
+        "Worked well overall. Only negative on certain outlets",
+        "For the offshore guy this is a must have and life saver. Great buy"
+      ],
+      "likes": 457
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 import {createApi,fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 
-const apiBaseUrl ='https://localhost:3001'
+const apiBaseUrl ='http://localhost:3001/'
 
-const catalogApi = createApi({
+export  const catalogApi = createApi({
     reducerPath:'catalogApi',
     baseQuery:fetchBaseQuery({
         baseUrl:apiBaseUrl,
@@ -15,16 +15,16 @@ const catalogApi = createApi({
     endpoints:(build)=>({
         getProducts: build.query({
             query:()=>'products',
-            providesTags:['Product']
+            providesTags:['Products']
         }),
         getProduct:build.query({
-            query:(id)=>`product/${id}`,
-            providesTags:['Products']
+            query:(id)=>`products/${id}`,
+            providesTags:['Product']
         }),
         updateLikes:build.mutation({
            query:({id,likes}) =>{
             return{
-                url:`product/${id}`,
+                url:`products/${id}`,
                 method:"PATCH",
                 body:{likes:likes >=0 ? likes:0}
             }
