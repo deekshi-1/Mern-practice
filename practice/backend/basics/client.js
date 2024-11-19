@@ -4,7 +4,7 @@ const fs = require("fs");
 const SERVER_HOST="localhost";
 const SERVER_PORT =3000;
 
-const sendFilePath ="/file_to_send.txt";
+const sendFilePath ="./file_to_send.txt";
 const fileStream = fs.createReadStream(sendFilePath);
 
 const client = net.createConnection(SERVER_PORT,SERVER_HOST,()=>{
