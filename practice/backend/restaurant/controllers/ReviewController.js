@@ -26,4 +26,6 @@ exports.addReview = (req, res) => {
   newReview.save().then((rest) => {
     console.log("added review", rest);
   });
+  console.log("reee");
+  
 };
