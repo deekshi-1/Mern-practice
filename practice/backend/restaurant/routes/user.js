@@ -1,14 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const userController = require("../controllers/UserController")
 
-router.post("/register",(req,res)=>{
-    res.json({message:"registration"})
-})
+router.post("/register",userController.registerUser)
 
 
-router.post("/login",(req,res)=>{
-    res.json({message:"logging in"})
-})
+router.post("/login",userController.loginUser)
 
 module.exports= router;

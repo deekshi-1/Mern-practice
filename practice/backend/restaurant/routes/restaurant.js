@@ -1,20 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-
-router.get("/all",(req,res)=>{
-    res.json({message:"All restaurent"})
-})
+const Restaurant = require("../controllers/RestaurantController")
 
 
-router.get("/get/:id",(req,res)=>{
-    let id = req.params.id;
-    res.json({message:`get detail of restaurant ${id}  `})
-})
+router.get("/all",Restaurant.getAll)
 
-router.post("/add",(req,res)=>{
-    res.json({message:`restaurant add `})
-})
+
+router.get("/get/:id",Restaurant.getRestaurant)
+
+router.post("/add",Restaurant.addRestaurant)
 
 
 module.exports= router;

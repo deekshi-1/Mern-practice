@@ -10,14 +10,14 @@ const review = require("./routes/review")
 
 const app = express();
 
-
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(passport.initialize())
+require('./passport')(passport);
 app.use("/api/users",user);
 app.use("/api/restaurants",restaurant);
 app.use("/api/reviews",review);
-mongo.connect(process.env.MONGODB_URL, { useNewUrlParser: true }).then(
+mongo.connect(process.env.MONGODB_URL).then(
   () => {
     console.log("connected to db");
   },
