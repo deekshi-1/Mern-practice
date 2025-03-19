@@ -39,7 +39,6 @@ const Navbar = () => {
           <ul className="font-medium flex flex-col sm:flex-row sm:space-x-5 rtl:space-x-reverse p-4 sm:p-0 mt-4 sm:mt-0 border border-gray-100 sm:border-0 rounded-lg bg-gray-50 sm:bg-white dark:bg-gray-800 sm:dark:bg-gray-900 dark:border-gray-700">
             <li className="p-1">Home</li>
             <li className="p-1">About</li>
-            <li className="p-1">Services</li>
             <li className="p-1">Projects</li>
             <li className="p-1">Contact</li>
           </ul> 

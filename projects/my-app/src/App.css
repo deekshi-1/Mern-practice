@@ -1,8 +1,42 @@
 .page-wrapper {
   padding: 20px 30px;
+  background: rgb(212, 211, 226);
+  background: linear-gradient(
+    183deg,
+    rgba(212, 211, 226, 1) 0%,
+    rgba(177, 201, 228, 0.74226187056854) 100%
+  );
 }
 
-.container{
-    border: 2px solid black;
-    padding: 15px;
+.container {
+  /* border: 2px solid black; */
+  padding: 15px;
+}
+
+.page-heading{
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 48px;
+  text-align: center;
+}
+.heading {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 38px;
+}
+
+.sub-heading {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 30px;
+}
+
+.description {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  line-height: 24px;
 }

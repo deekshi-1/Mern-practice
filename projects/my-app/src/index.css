@@ -1,5 +1,6 @@
 @import "tailwindcss";
-* {
+body{
   max-width: 1920px;
   margin: auto;
+  font-family: 'Courier New', Courier, monospace;
 }
